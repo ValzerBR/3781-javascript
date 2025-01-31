@@ -35,3 +35,5 @@ async function manipularSubmissaoFormulario(event) {
 async function manipularCancelamento() {
   ui.limparFormulario()
 }
+
+ui.verificaListaVazia()

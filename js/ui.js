@@ -76,7 +76,22 @@ const ui = {
 
   limparFormulario(){
     document.getElementById("pensamento-form").reset()
+  },
+
+  async verificaListaVazia(){
+    const pensamentos = await api.buscarPensamentos()
+    if (pensamentos.length == 0){
+        const listaPensamentos = document.getElementById("lista-pensamentos")
+        const campoListaVazia = document.createElement("div")
+        const msgListaVazia = document.createElement("p")
+        msgListaVazia.textContent = "Nada por aqui ainda, que tal compartilhar alguma ideia?"
+        const imgListaVazia = document.createElement("img")
+        imgListaVazia.src = "assets/imagens/lista-vazia.png"
+        listaPensamentos.classList.add("mensagem-vazia")
+        campoListaVazia.appendChild(msgListaVazia)
+        campoListaVazia.appendChild(imgListaVazia)
+        listaPensamentos.appendChild(campoListaVazia)
+    }
   }
 }
-
 export default ui
